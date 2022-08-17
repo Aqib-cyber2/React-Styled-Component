@@ -7,16 +7,28 @@ export const StyledHeader = styled.header`
     background-size: cover;
     height: 360px;
 
+    /* .btn-box{
+        position: ;
+    } */
+
 `
 
-export const Nav = styled.nav`  
+export const Nav = styled.nav` 
     background-color: hsl(0, 0%, 100%);
     color: hsl(0, 0%, 0%);
     padding: 30px;
     display: flex;
     align-items: center;
     justify-content: space-between;
-    margin-bottom: 40px;
+    
+    @media (min-width: 768px){
+        position: relative;
+
+        &.mobile-nav{
+            display: none;
+        }
+    }
+
 
     button{
         border: 0;
@@ -36,6 +48,7 @@ export const Nav = styled.nav`
             a{
                 text-decoration: none;
                 color: hsl(0, 0%, 0%);
+                font-weight: 600;
             }
         }
     }

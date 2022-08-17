@@ -18,7 +18,7 @@ function Header() {
 
   return (
     <StyledHeader color=""> 
-      <Nav>
+      <Nav className="mobile-nav">
         <button>   
           <img src="./images/icon-close.svg" alt="closeIcon" />
         </button>
