@@ -27,13 +27,13 @@ export const StyledHeader = styled.header`
     .content-section{
         h1{
             font-size: 26px;
-            line-height: 1.7rem;
+            line-height: 2rem;
             margin-bottom: 0.85rem;
         }
 
         p{
             color: hsl(0, 0%, 63%);
-            margin-bottom: 1rem;
+            margin-bottom: 1.5rem;
         }
     }
 `
@@ -44,7 +44,7 @@ export const Nav = styled.nav`
 
     display: flex;
     align-items: center;
-    padding: var(--padding-30);
+    padding-block: var(--padding-30);
     transition: transform 200ms ease-in;
 
     /* humberger icon */
@@ -61,23 +61,19 @@ export const Nav = styled.nav`
     /* mobile navigation style */
     .mobile-nav{
         width: 100%;
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        padding: var(--padding-30);
+        padding-block: var(--padding-30);
         background-color: hsl(0, 0%, 100%);
         color: hsl(0, 0%, 0%);
         transition: transform 200ms ease;
 
+        &>div{
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
         &.hide{ transform: translateY(-100%) }
         &.show{ transform: translateY(0) }
-    }
-    
-    /* fixed header mobile navigation */
-    .fixed{
-        position: fixed;
-        left: 0;
-        top: 0;
     }
 
     /* navbar menus */

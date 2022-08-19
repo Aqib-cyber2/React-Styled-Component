@@ -1,4 +1,6 @@
 // import { useState } from "react"
+import { Link } from "react-router-dom"
+
 import { StyledHeader, Nav, Logo} from "./styles/Header.styled"
 import { Container } from "./styles/Container.styled"
 import { Button } from "./styles/Button.styled"
@@ -29,8 +31,9 @@ function Header() {
     {/* img section */}
       <div className="img-section">
         {/* Navbar */}
-        <Nav>
-
+        <Container>
+          <Nav>
+ 
           <button className="toggle-btn">   
             <img src="./images/icon-hamburger.svg" alt="humberger menu icon" />
           </button>
@@ -39,17 +42,20 @@ function Header() {
 
           {/* fixed navigation bar in header on mobile devices */}
           <div className="mobile-nav fixed hide">
-            <button className="toggle-btn">   
-              <img src="./images/icon-close.svg" alt="closeIcon" />
-            </button>
+            
+            <Container>
+              <button className="toggle-btn">   
+                <img src="./images/icon-close.svg" alt="closeIcon" />
+              </button>
 
-            <ul>
-              { li.map( li =>  <li key={li.title}> <a href="#"> {li.title} </a> </li> ) }
-            </ul> 
-
+              <ul>
+                { li.map( li =>  <li key={li.title}>  {  <Link to="#"> {li.title} </Link> }  </li> ) }
+              </ul> 
+            </Container>
           </div>
 
-        </Nav>
+          </Nav>
+        </Container>
 
         {/* slider buttons  */}
         <div className="button-box" bg="#ebfbff">
@@ -59,17 +65,19 @@ function Header() {
       </div>
 
       {/* content section */}
-      <Container className="content-section">
-        <h1> Discover innovative <br /> ways to decorate </h1>
+      <div className="content-section">
+        <Container>
+          <h1> Discover innovative <br /> ways to decorate </h1>
 
-        <p>
-          We provide unmatched quality, comfort, and style for property owners across the country. 
-          Our experts combine form and function in bringing your vision to life. Create a room in your 
-          own style with our collection and make your property a reflection of you and what you love.
-        </p>
+          <p>
+            We provide unmatched quality, comfort, and style for property owners across the country. 
+            Our experts combine form and function in bringing your vision to life. Create a room in your 
+            own style with our collection and make your property a reflection of you and what you love.
+          </p>
 
-        <Button className="btn"> Shop now  <img src="./images/icon-arrow.svg" alt="button arrowIcon" /> </Button>
-      </Container>
+          <Button className="btn"> Shop now  <img src="./images/icon-arrow.svg" alt="button arrowIcon" /> </Button>
+        </Container>
+      </div>
 
 
     </StyledHeader> 

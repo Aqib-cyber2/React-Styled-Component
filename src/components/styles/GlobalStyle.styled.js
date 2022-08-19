@@ -26,4 +26,15 @@ export const GlobalStyle = createGlobalStyle`
         padding: 5px;
     }
 
+    /* fixed header mobile navigation */
+    .fixed{
+        position: fixed;
+        left: 0;
+        top: 0;
+    }
+
+    .content-section{
+        padding-block: 11vw;
+    }
+
 `
