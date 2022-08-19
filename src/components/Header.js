@@ -1,4 +1,4 @@
-// import { useState } from "react"
+import { useState, useEffect } from "react"
 import { Link } from "react-router-dom"
 
 import { StyledHeader, Nav, Logo} from "./styles/Header.styled"
@@ -7,10 +7,9 @@ import { Button } from "./styles/Button.styled"
 
 
 function Header() {
-
-  // let [toggle, setToggle] = useState(false)
-
-  let li = [
+  // defining states
+  let [toggle, setToggle] = useState(false);
+  let [li, setLinks] = useState( [
     {
       title: 'home'
     },
@@ -23,7 +22,18 @@ function Header() {
     {
       title: 'contact'
     },
-  ]
+  ])
+
+  // definind useEffect for adding resize event and removing.
+  useEffect(() => {
+    function handleResize() { setToggle(false) }
+
+    window.addEventListener('resize', handleResize)
+
+    return _ => { window.removeEventListener('resize', handleResize) }
+  })
+
+  function toggleNav(){ setToggle(!toggle) }
 
   return (
     // header
@@ -34,17 +44,17 @@ function Header() {
         <Container>
           <Nav>
  
-          <button className="toggle-btn">   
+          <button className="toggle-btn" onClick={toggleNav}>   
             <img src="./images/icon-hamburger.svg" alt="humberger menu icon" />
           </button>
 
           <Logo src="./images/logo.svg" />
 
           {/* fixed navigation bar in header on mobile devices */}
-          <div className="mobile-nav fixed hide">
+          <div className={`mobile-nav fixed hide ${toggle ? 'show': ''}`}>
             
             <Container>
-              <button className="toggle-btn">   
+              <button className="toggle-btn" onClick={toggleNav}>   
                 <img src="./images/icon-close.svg" alt="closeIcon" />
               </button>
 
