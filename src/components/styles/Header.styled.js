@@ -1,18 +1,24 @@
 import styled from "styled-components";
 
+// destructing props and access dyamic bg
+let img = ({bgWidth}) => bgWidth > 599 ? 'desktop-image-hero-1':  'mobile-image-hero-1'
+
+
 // header component
 export const StyledHeader = styled.header`
     /* img section in header */
+
+    /* font-weight: ${(props) => props.color}; */
     .img-section{
         position: relative;
-        background: #6a6e71 url('./images/mobile-image-hero-1.jpg') no-repeat;
+        background: #6a6e71 url(./images/${img}.jpg) no-repeat;
         background-size: cover;
-        padding-bottom: 75%;
+        padding-bottom: ${({bgWidth}) => bgWidth>599 ? '51%' : '70%'};
 
         .button-box{
-        position: absolute;
-        bottom: 0;
-        right: 0;
+            position: absolute;
+            bottom: 0;
+            right: 0;
 
             .btn{
                 background-color: ${(props)=> props.bg || 'hsl(0, 0%, 0%)'};
@@ -58,6 +64,20 @@ export const Nav = styled.nav`
         }
     }
 
+    /* desktop nav bar  */
+    .DesktopNavigation{
+        display: none;
+
+        @media (min-width: 600px) {
+            display: flex;
+            margin-left: 60px;
+            
+            a{
+                color: hsl(0, 0%, 100%);
+            }
+        }
+    }
+
     /* mobile navigation style */
     .mobile-nav{
         width: 100%;
@@ -85,11 +105,32 @@ export const Nav = styled.nav`
         li{
             margin-right: 20px;
 
+            @media (min-width: 600px) {
+                margin-right: 30px;
+            }
+
             &:last-child{ margin-right: 0 }
+
             a{
-                text-decoration: none;
+                position: relative;
                 color: hsl(0, 0%, 0%);
+                padding: 8px 0;
                 font-weight: 600;
+                text-decoration: none;
+
+                &::before{
+                    content: '';
+                    position: absolute;
+                    bottom: 0;
+                    width: 100%;
+                    transform: scaleX(0);
+                    border: 1px solid white;
+                    transition: transform 200ms ease-out;
+                }
+
+                &:hover::before, &.active::before{
+                    transform: scaleX(0.5);
+                }
             }
         }
     }

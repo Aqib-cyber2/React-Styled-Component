@@ -23,10 +23,11 @@ function Header() {
       title: 'contact'
     },
   ])
+  let [dimension, setDimension] = useState(window.innerWidth)
 
   // definind useEffect for adding resize event and removing.
   useEffect(() => {
-    function handleResize() { setToggle(false) }
+    function handleResize() { setToggle(false); setDimension(window.innerWidth) }
 
     window.addEventListener('resize', handleResize)
 
@@ -37,7 +38,7 @@ function Header() {
 
   return (
     // header
-    <StyledHeader color=""> 
+    <StyledHeader bgWidth={dimension}> 
     {/* img section */}
       <div className="img-section">
         {/* Navbar */}
@@ -49,6 +50,10 @@ function Header() {
           </button>
 
           <Logo src="./images/logo.svg" />
+
+          <ul className="DesktopNavigation">
+            { li.map( li =>  <li key={li.title}>  {  <Link to="#"> {li.title} </Link> }  </li> ) }
+          </ul> 
 
           {/* fixed navigation bar in header on mobile devices */}
           <div className={`mobile-nav fixed hide ${toggle ? 'show': ''}`}>
