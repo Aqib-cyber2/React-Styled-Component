@@ -34,7 +34,8 @@ export const GlobalStyle = createGlobalStyle`
     }
 
     .content-section{
-        padding-block: 11vw;
+        padding-block: 45px;
+        margin: auto;
     }
 
 `

@@ -7,13 +7,14 @@ let img = ({bgWidth}) => bgWidth > 599 ? 'desktop-image-hero-1':  'mobile-image-
 // header component
 export const StyledHeader = styled.header`
     /* img section in header */
-
-    /* font-weight: ${(props) => props.color}; */
     .img-section{
         position: relative;
-        background: #6a6e71 url(./images/${img}.jpg) no-repeat;
+        background:  url(./images/${img}.jpg) no-repeat;
         background-size: cover;
-        padding-bottom: ${({bgWidth}) => bgWidth>599 ? '51%' : '70%'};
+        /* height: 38.125vw; 1440 */
+        /* height: 360px; */
+        padding-bottom: 75%;
+        /* padding-bottom: ${({bgWidth}) => bgWidth>599 ? '37.083vw' : '70%'}; */
 
         .button-box{
             position: absolute;
@@ -22,7 +23,7 @@ export const StyledHeader = styled.header`
 
             .btn{
                 background-color: ${(props)=> props.bg || 'hsl(0, 0%, 0%)'};
-                padding: 15px 20px;
+                padding: 15px 25px;
 
                 img{ width : 12px }
             }
@@ -40,6 +41,20 @@ export const StyledHeader = styled.header`
         p{
             color: hsl(0, 0%, 63%);
             margin-bottom: 1.5rem;
+        }
+    }
+
+    @media (min-width: 900px) {
+        display: flex;
+
+        .img-section{ 
+            width: 58.33%; padding-bottom: 31%;
+
+            .button-box{
+                right: -132px !important;
+            }   
+        }
+        .content-section{ flex: 1; padding: 0; margin: auto;
         }
     }
 `
