@@ -23,9 +23,14 @@ export const StyledHeader = styled.header`
 
             .btn{
                 background-color: ${(props)=> props.bg || 'hsl(0, 0%, 0%)'};
-                padding: 15px 25px;
+                padding: 15px 20px;
+                transition: background-color 200ms ease-out;
 
                 img{ width : 12px }
+
+                &:hover{
+                    background-color: hsl(0, 0%, 27%);
+                }
             }
         }
     }
@@ -51,10 +56,12 @@ export const StyledHeader = styled.header`
             width: 58.33%; padding-bottom: 31%;
 
             .button-box{
-                right: -132px !important;
+                right: -112px;
             }   
         }
-        .content-section{ flex: 1; padding: 0; margin: auto;
+        .content-section{ 
+            flex: 1; padding: 0; margin: auto;
+            
         }
     }
 `
