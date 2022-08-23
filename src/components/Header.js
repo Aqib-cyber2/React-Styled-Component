@@ -9,7 +9,11 @@ import { Button } from "./styles/Button.styled"
 function Header() {
   // defining states
   let [toggle, setToggle] = useState(false);
-  let [li, setLinks] = useState( [
+  let [dimension, setDimension] = useState(window.innerWidth);
+  // let [mainContent, SetmainContent] = useState()
+
+  // menu links...
+  let li = [
     {
       title: 'home'
     },
@@ -22,20 +26,70 @@ function Header() {
     {
       title: 'contact'
     },
-  ])
-  let [dimension, setDimension] = useState(window.innerWidth)
+  ]
+  // main slider data 
+  let sliderData = [
+    {
+      img: 'desktop-image-hero-1.jpg',
 
-  // definind useEffect for adding resize event and removing.
+      title: 'Discover innovative ways to decorate',
+
+      description: `We provide unmatched quality, comfort, and style for property owners across the country. 
+      Our experts combine form and function in bringing your vision to life. Create a room in your 
+      own style with our collection and make your property a reflection of you and what you love.`,
+    },
+    {
+      img: 'desktop-image-hero-2.jpg',
+
+      title: 'We are available all across the globe',
+
+      description: `With stores all over the world, it's easy for you to find furniture for your home or place of business. 
+      Locally, we’re in most major cities throughout the country. Find the branch nearest you using our 
+      store locator. Any questions? Don't hesitate to contact us today.`,
+    },
+    {
+      img: 'desktop-image-hero-3.jpg',
+
+      title: 'Manufactured with the best materials',
+
+      description: `Our modern furniture store provide a high level of quality. Our company has invested in advanced technology 
+      to ensure that every product is made as perfect and as consistent as possible. With three decades of 
+      experience in this industry, we understand what customers want for their home and office.`,
+    },
+  ]
+
+  // Functions...
+  function toggleNav(){ setToggle(!toggle) }
+
+  let [index, setIndex] = useState(0);
+
+  function renderData(arg){
+    console.log(index)  //0, 1, 2
+    arg === "next" ? setIndex(index+1) : setIndex(index-1);
+
+    if(index >= sliderData.length - 1) {
+      index = 0 ;
+      setIndex(index)
+    }
+    else if(index <= 0){
+      index = sliderData.length - 1;
+      setIndex(index)
+    }
+      // setIndex(sliderData.length - 1);
+  }
+
+
+  //  USE EFFECTS
   useEffect(() => {
     function handleResize() { setToggle(false); setDimension(window.innerWidth) }
 
     window.addEventListener('resize', handleResize)
 
     return _ => { window.removeEventListener('resize', handleResize) }
-  })
+  }, [dimension])
 
-  function toggleNav(){ setToggle(!toggle) }
 
+  
   return (
     // header
     <StyledHeader bgWidth={dimension}> 
@@ -74,15 +128,22 @@ function Header() {
 
         {/* slider buttons  */}
         <div className="button-box" bg="#ebfbff">
-          <button type="button" className="btn"> <img src="./images/icon-angle-left.svg" alt="Left arrow Icon" /> </button>
-          <button type="button" className="btn"> <img src="./images/icon-angle-right.svg" alt="right arrow Icon" /> </button>
+
+          <button type="button" className="btn" onClick={ ()=> renderData('prev') } > 
+            <img src="./images/icon-angle-left.svg" alt="Left arrow Icon" /> 
+          </button>
+
+          <button type="button" className="btn" onClick={ ()=> renderData('next') } > 
+            <img src="./images/icon-angle-right.svg" alt="right arrow Icon" /> 
+          </button>
+
         </div>
       </div>
 
       {/* content section */}
       <div className="content-section">
         <Container>
-          <h1> Discover innovative <br /> ways to decorate </h1>
+          <h1> Tite </h1>
 
           <p>
             We provide unmatched quality, comfort, and style for property owners across the country. 
