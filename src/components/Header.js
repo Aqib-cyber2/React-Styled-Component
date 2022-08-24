@@ -61,21 +61,29 @@ function Header() {
   // Functions...
   function toggleNav(){ setToggle(!toggle) }
 
-  let [index, setIndex] = useState(0);
+  let [index, setIndex] = useState(-1);
+
+  // useEffect(() => {
+  //   setIndex(() => index + 1);
+  // }, [index]); 
 
   function renderData(arg){
-    console.log(index)  //0, 1, 2
-    arg === "next" ? setIndex(index+1) : setIndex(index-1);
-
-    if(index >= sliderData.length - 1) {
-      index = 0 ;
-      setIndex(index)
+    // let value = arg === "next" ? index+1 : index-1;
+    // console.log(index, arg, value)
+    // if(index > sliderData.length - 1) {
+    //   setIndex(0)
+    // }
+    // else if(index <= 0){
+    //   setIndex(sliderData.length - 1)
+    // }
+    // setIndex(value)
+    
+    if(arg === "next"){
+      setIndex(++index)
+    }else{
+      setIndex(--index)
     }
-    else if(index <= 0){
-      index = sliderData.length - 1;
-      setIndex(index)
-    }
-      // setIndex(sliderData.length - 1);
+    console.log(index)
   }
 
 
