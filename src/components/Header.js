@@ -63,19 +63,21 @@ function Header() {
 
   let [index, setIndex] = useState(0);
 
-  function renderData(arg){
-    console.log(index)  //0, 1, 2
-    arg === "next" ? setIndex(index+1) : setIndex(index-1);
-
-    if(index >= sliderData.length - 1) {
-      index = 0 ;
-      setIndex(index)
+  function renderData(arg){  
+    if(arg === "next"){
+      setIndex(++index)
+      console.log(index)
+      if(index > sliderData.length - 1)  {
+        setIndex(0);
+      }
     }
-    else if(index <= 0){
-      index = sliderData.length - 1;
-      setIndex(index)
+    else{
+      setIndex(--index);
+      console.log(index, "negative")
+      if(index < 0){
+        setIndex(sliderData.length - 1)
+      }
     }
-      // setIndex(sliderData.length - 1);
   }
 
 
@@ -143,12 +145,10 @@ function Header() {
       {/* content section */}
       <div className="content-section">
         <Container>
-          <h1> Tite </h1>
+          <h1> {sliderData[index].title} </h1>
 
           <p>
-            We provide unmatched quality, comfort, and style for property owners across the country. 
-            Our experts combine form and function in bringing your vision to life. Create a room in your 
-            own style with our collection and make your property a reflection of you and what you love.
+            {sliderData[index].description}
           </p>
 
           <Button className="btn"> Shop now  <img src="./images/icon-arrow.svg" alt="button arrowIcon" /> </Button>
