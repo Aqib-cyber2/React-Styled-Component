@@ -27,6 +27,7 @@ function Header() {
       title: 'contact'
     },
   ]
+
   // main slider data 
   let sliderData = [
     {
@@ -66,14 +67,12 @@ function Header() {
   function renderData(arg){  
     if(arg === "next"){
       setIndex(++index)
-      console.log(index)
       if(index > sliderData.length - 1)  {
         setIndex(0);
       }
     }
     else{
       setIndex(--index);
-      console.log(index, "negative")
       if(index < 0){
         setIndex(sliderData.length - 1)
       }
@@ -82,9 +81,8 @@ function Header() {
 
 
   //  USE EFFECTS
+  function handleResize() { setToggle(false); setDimension(window.innerWidth) }
   useEffect(() => {
-    function handleResize() { setToggle(false); setDimension(window.innerWidth) }
-
     window.addEventListener('resize', handleResize)
 
     return _ => { window.removeEventListener('resize', handleResize) }
@@ -94,7 +92,7 @@ function Header() {
   
   return (
     // header
-    <StyledHeader bgWidth={dimension}> 
+    <StyledHeader bgWidth={dimension} bgImg={sliderData[index].img}> 
     {/* img section */}
       <div className="img-section">
         {/* Navbar */}

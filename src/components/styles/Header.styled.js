@@ -1,7 +1,8 @@
 import styled from "styled-components";
 
 // destructing props and access dyamic bg
-let img = ({bgWidth}) => bgWidth > 599 ? 'desktop-image-hero-1':  'mobile-image-hero-1'
+// let img = ({bgWidth}) => bgWidth > 599 ? 'desktop-image-hero-1':  'mobile-image-hero-1'
+let img = (props) => props.bgImg;
 
 
 // header component
@@ -9,7 +10,7 @@ export const StyledHeader = styled.header`
     /* img section in header */
     .img-section{
         position: relative;
-        background:  url(./images/${img}.jpg) no-repeat;
+        background:  url(./images/${img}) no-repeat;
         background-size: cover;
         /* height: 38.125vw; 1440 */
         /* height: 360px; */
