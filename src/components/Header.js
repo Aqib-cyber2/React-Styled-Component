@@ -31,7 +31,10 @@ function Header() {
   // main slider data 
   let sliderData = [
     {
-      img: 'desktop-image-hero-1.jpg',
+      img: {
+        desktop: 'desktop-image-hero-1.jpg',
+        mobile: 'mobile-image-hero-1.jpg'
+      },
 
       title: 'Discover innovative ways to decorate',
 
@@ -40,7 +43,10 @@ function Header() {
       own style with our collection and make your property a reflection of you and what you love.`,
     },
     {
-      img: 'desktop-image-hero-2.jpg',
+      img: {
+        desktop: 'desktop-image-hero-2.jpg',
+        mobile: 'mobile-image-hero-2.jpg'
+      },
 
       title: 'We are available all across the globe',
 
@@ -49,7 +55,10 @@ function Header() {
       store locator. Any questions? Don't hesitate to contact us today.`,
     },
     {
-      img: 'desktop-image-hero-3.jpg',
+      img: {
+        desktop: 'desktop-image-hero-3.jpg',
+        mobile: 'mobile-image-hero-3.jpg'
+      },
 
       title: 'Manufactured with the best materials',
 
@@ -92,7 +101,7 @@ function Header() {
   
   return (
     // header
-    <StyledHeader bgWidth={dimension} bgImg={sliderData[index].img}> 
+    <StyledHeader bgImg={dimension > 599 ? sliderData[index].img.desktop : sliderData[index].img.mobile}> 
     {/* img section */}
       <div className="img-section">
         {/* Navbar */}
