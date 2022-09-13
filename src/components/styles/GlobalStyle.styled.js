@@ -21,9 +21,8 @@ export const GlobalStyle = createGlobalStyle`
 
     .btn{
         border-color: transparent;
-        padding: 0.5rem 1rem;
+        padding: 0.5rem 0rem;
         cursor: pointer;
-        padding: 5px;
     }
 
     /* fixed header mobile navigation */

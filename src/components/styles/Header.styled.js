@@ -20,7 +20,7 @@ export const StyledHeader = styled.header`
         .button-box{
             position: absolute;
             bottom: 0;
-            right: -16.67%;
+            right: 0%;
             width: 16.67%;
 
             .btn{
@@ -40,8 +40,9 @@ export const StyledHeader = styled.header`
 
     /* content section in header */
     .content-section{
+        padding: 45px 6.7%;
         .title{
-            font-size: 2.5rem;
+            font-size: 2rem;
             font-weight: 900;
             line-height: 1;
             margin-bottom: 1rem;
@@ -65,7 +66,9 @@ export const StyledHeader = styled.header`
             }   
         }
         .content-section{ 
-            flex: 1; padding: 0; margin: auto;
+            flex: 1; 
+            padding-block : 0;
+            margin: auto;
         }
     }
 `

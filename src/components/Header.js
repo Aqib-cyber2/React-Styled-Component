@@ -155,7 +155,7 @@ function Header() {
 
       {/* content section */}
       <div className="content-section">
-        <Container>
+        {/* <Container> */}
           <h1 className="title"> {sliderData[index].title} </h1>
 
           <p>
@@ -163,7 +163,7 @@ function Header() {
           </p>
 
           <Button className="btn"> Shop now  <img src="./images/icon-arrow.svg" alt="button arrowIcon" /> </Button>
-        </Container>
+        {/* </Container> */}
       </div>
 
 
