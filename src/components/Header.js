@@ -1,17 +1,13 @@
 import { useState, useEffect } from "react"
 import { Link } from "react-router-dom"
 
+// -----------------  React Styled Components
 import { StyledHeader, Nav, Logo} from "./styles/Header.styled"
 import { Container } from "./styles/Container.styled"
 import { Button } from "./styles/Button.styled"
 
 
 function Header() {
-  // defining states
-  let [toggle, setToggle] = useState(false);
-  let [dimension, setDimension] = useState(window.innerWidth);
-  // let [mainContent, SetmainContent] = useState()
-
   // menu links...
   let li = [
     {
@@ -68,10 +64,15 @@ function Header() {
     },
   ]
 
-  // Functions...
-  function toggleNav(){ setToggle(!toggle) }
 
+  // defining states
+  let [toggle, setToggle] = useState(false);
+  let [dimension, setDimension] = useState(window.innerWidth);
   let [index, setIndex] = useState(0);
+
+
+  // Functions
+  function toggleNav(){ setToggle(!toggle) }
 
   function renderData(arg){  
     if(arg === "next"){
@@ -87,13 +88,16 @@ function Header() {
       }
     }
   }
+  // resize event function in useEffect to call
+  function handleResize() { 
+    setToggle(false); setDimension(window.innerWidth) 
+    console.log("here code executed");
+  }
 
 
   //  USE EFFECTS
-  function handleResize() { setToggle(false); setDimension(window.innerWidth) }
   useEffect(() => {
     window.addEventListener('resize', handleResize)
-
     return _ => { window.removeEventListener('resize', handleResize) }
   }, [dimension])
 
@@ -152,7 +156,7 @@ function Header() {
       {/* content section */}
       <div className="content-section">
         <Container>
-          <h1> {sliderData[index].title} </h1>
+          <h1 className="title"> {sliderData[index].title} </h1>
 
           <p>
             {sliderData[index].description}

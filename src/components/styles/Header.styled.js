@@ -20,14 +20,16 @@ export const StyledHeader = styled.header`
         .button-box{
             position: absolute;
             bottom: 0;
-            right: 0;
+            right: -16.67%;
+            width: 16.67%;
 
             .btn{
                 background-color: ${(props)=> props.bg || 'hsl(0, 0%, 0%)'};
-                padding: 15px 20px;
+                padding: 10% 0;
+                width: 50%;
                 transition: background-color 200ms ease-out;
 
-                img{ width : 12px }
+                img{ width: 12px;}
 
                 &:hover{
                     background-color: hsl(0, 0%, 27%);
@@ -38,10 +40,11 @@ export const StyledHeader = styled.header`
 
     /* content section in header */
     .content-section{
-        h1{
-            font-size: 26px;
-            line-height: 2rem;
-            margin-bottom: 0.85rem;
+        .title{
+            font-size: 2.5rem;
+            font-weight: 900;
+            line-height: 1;
+            margin-bottom: 1rem;
         }
 
         p{
@@ -54,15 +57,15 @@ export const StyledHeader = styled.header`
         display: flex;
 
         .img-section{ 
-            width: 58.33%; padding-bottom: 31%;
+            width: 60%; 
+            padding-bottom: 31%;
 
             .button-box{
-                right: -112px;
+                right: -16.67%;
             }   
         }
         .content-section{ 
             flex: 1; padding: 0; margin: auto;
-            
         }
     }
 `

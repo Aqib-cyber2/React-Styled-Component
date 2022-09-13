@@ -11,7 +11,7 @@ export const AboutSection = styled.section`
 
         .img-box{
             /* width: 30%; */
-            width: 32.5%;
+            width: 30%;
         }
 
         .content-section{
